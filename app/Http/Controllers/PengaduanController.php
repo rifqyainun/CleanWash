@@ -1,0 +1,4 @@
+<?php
+namespace App\Http\Controllers;
+use App\Models\Pengaduan; use Illuminate\Http\Request;
+class PengaduanController extends Controller { public function publicForm(){return view('pengaduans.public');} public function publicStore(Request $r){$d=$r->validate(['nama'=>'required','kontak'=>'required','pesan'=>'required']);Pengaduan::create($d+['status'=>'Baru']);return back()->with('success','Pengaduan berhasil dikirim.');} public function index(){return view('pengaduans.index',['pengaduans'=>Pengaduan::latest()->paginate(10)]);} public function show(Pengaduan $pengaduan){return view('pengaduans.show',compact('pengaduan'));} public function update(Request $r,Pengaduan $pengaduan){$d=$r->validate(['status'=>'required','tanggapan'=>'nullable']);$pengaduan->update($d);return redirect()->route('pengaduan.index')->with('success','Pengaduan diperbarui.');}}

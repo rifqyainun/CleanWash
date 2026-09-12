@@ -1,0 +1,1 @@
+<div class="mb-3"><label>Nama Layanan</label><input name="nama_produk" class="form-control" value="{{old('nama_produk',$produk?->nama_produk)}}" required></div><div class="mb-3"><label>Harga / satuan</label><input name="harga" type="number" class="form-control" value="{{old('harga',$produk?->harga)}}" required></div>

@@ -1,0 +1,4 @@
+<?php
+namespace App\Http\Controllers;
+use App\Models\Produk; use Illuminate\Http\Request;
+class ProdukController extends Controller { public function index(){return view('produks.index',['produks'=>Produk::latest()->paginate(10)]);} public function create(){return view('produks.create');} public function store(Request $r){$d=$r->validate(['nama_produk'=>'required','harga'=>'required|numeric|min:0']);Produk::create($d);return redirect()->route('produk.index')->with('success','Layanan ditambahkan.');} public function edit(Produk $produk){return view('produks.edit',compact('produk'));} public function update(Request $r,Produk $produk){$d=$r->validate(['nama_produk'=>'required','harga'=>'required|numeric|min:0']);$produk->update($d);return redirect()->route('produk.index')->with('success','Layanan diperbarui.');} public function destroy(Produk $produk){$produk->delete();return back()->with('success','Layanan dihapus.');}}

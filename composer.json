@@ -1,0 +1,8 @@
+{
+  "name": "cleanwash/cleanwash",
+  "type": "project",
+  "description": "CleanWash Laundry Management System",
+  "require": {"php": "^8.2", "laravel/framework": "^11.0", "laravel/tinker": "^2.9"},
+  "autoload": {"psr-4": {"App\\": "app/", "Database\\Factories\\": "database/factories/", "Database\\Seeders\\": "database/seeders/"}},
+  "scripts": {"post-autoload-dump": ["@php artisan package:discover --ansi"], "post-update-cmd": ["@php artisan vendor:publish --tag=laravel-assets --ansi --force"]}
+}
